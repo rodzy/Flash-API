@@ -19,7 +19,8 @@ func DirectDrivers() {
 	router.HandleFunc("/register", middlewares.CheckDataBase(routers.Register)).Methods("POST")
 	//Login
 	router.HandleFunc("/login", middlewares.CheckDataBase(routers.Login)).Methods("POST")
-
+	//Token usage
+	//router.HandleFunc("/profile",middlewares.CheckDataBase(middlewares.CheckJWT(routers.CheckProfile))).Methods("GET")
 	//Setting port env var
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
