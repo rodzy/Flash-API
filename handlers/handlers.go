@@ -17,6 +17,8 @@ func DirectDrivers() {
 	router := mux.NewRouter()
 	//Register
 	router.HandleFunc("/register", middlewares.CheckDataBase(routers.Register)).Methods("POST")
+	//Login
+	router.HandleFunc("/login", middlewares.CheckDataBase(routers.Login)).Methods("POST")
 
 	//Setting port env var
 	PORT := os.Getenv("PORT")
