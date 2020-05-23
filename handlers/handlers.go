@@ -20,9 +20,11 @@ func DirectDrivers() {
 	//Login
 	router.HandleFunc("/login", middlewares.CheckDataBase(routers.Login)).Methods("POST")
 	//Profile
-	router.HandleFunc("/profile",middlewares.CheckDataBase(middlewares.CheckJWT(routers.ViewProfile))).Methods("GET")
+	router.HandleFunc("/profile", middlewares.CheckDataBase(middlewares.CheckJWT(routers.ViewProfile))).Methods("GET")
 	//Updating profile
-	router.HandleFunc("/updateProfile",middlewares.CheckDataBase(middlewares.CheckJWT(routers.ModifyUserInfo))).Methods("PUT")
+	router.HandleFunc("/updateProfile", middlewares.CheckDataBase(middlewares.CheckJWT(routers.ModifyUserInfo))).Methods("PUT")
+	//Publish pubs
+	router.HandleFunc("/pubpub", middlewares.CheckDataBase(middlewares.CheckJWT(routers.PublishPub))).Methods("POST")
 	//Setting port env var
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
