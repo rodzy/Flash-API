@@ -25,6 +25,10 @@ func DirectDrivers() {
 	router.HandleFunc("/updateProfile", middlewares.CheckDataBase(middlewares.CheckJWT(routers.ModifyUserInfo))).Methods("PUT")
 	//Publish pubs
 	router.HandleFunc("/pubpub", middlewares.CheckDataBase(middlewares.CheckJWT(routers.PublishPub))).Methods("POST")
+	//View pubs
+	router.HandleFunc("/pubread", middlewares.CheckDataBase(middlewares.CheckJWT(routers.PubReader))).Methods("GET")
+	//Deleting pubs
+	router.HandleFunc("/pubdelete", middlewares.CheckDataBase(middlewares.CheckJWT(routers.DeletePub))).Methods("DELETE")
 	//Setting port env var
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
