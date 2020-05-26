@@ -37,6 +37,11 @@ func DirectDrivers() {
 	router.HandleFunc("/uploadBanner", middlewares.CheckDataBase(middlewares.CheckJWT(routers.UploadBannerPic))).Methods("POST")
 	//Banner request
 	router.HandleFunc("/banner", middlewares.CheckDataBase(routers.ShowBanner)).Methods("GET")
+	//Follower
+	router.HandleFunc("/follow", middlewares.CheckDataBase(middlewares.CheckJWT(routers.FollowUser))).Methods("POST")
+	//Unfollow
+	router.HandleFunc("/unfollow", middlewares.CheckDataBase(middlewares.CheckJWT(routers.UnfollowUser))).Methods("DELETE")
+	
 	//Setting port env var
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
