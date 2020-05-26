@@ -9,7 +9,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 //GetFollowerList func
-func GetFollowerList(ID string,page int64,search string,tipo string)([]*models.User,bool){
+func GetFollowerList(ID string,page int64,search string,type string)([]*models.User,bool){
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 	db := MongoCon.Database("flash")
@@ -45,10 +45,10 @@ func GetFollowerList(ID string,page int64,search string,tipo string)([]*models.U
 		add=false
 
 		found,err=CheckFollower(rel)
-		if tipo=="new" && found==true {
+		if type=="new" && found==true {
 			add=true		
 		}
-		if tipo=="follow" && found==false {
+		if type=="follow" && found==false {
 			add=true
 		}
 		if rel.UserFollowed==ID{
