@@ -43,6 +43,7 @@ func DirectDrivers() {
 	router.HandleFunc("/unfollow", middlewares.CheckDataBase(middlewares.CheckJWT(routers.UnfollowUser))).Methods("DELETE")
 	//My followers
 	router.HandleFunc("/myfollowers", middlewares.CheckDataBase(middlewares.CheckJWT(routers.AskFollower))).Methods("GET")
+	
 	//Setting port env var
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
