@@ -21,7 +21,9 @@ func GetFollowerList(ID string,page int64,search string,tipo string)([]*models.U
 	findOptions.SetSkip((page -1)*20)
 	findOptions.SetLimit(20)
 
-	query := bson.M{"nombre":bson.M{"$regex":`(?i)`+search}}
+	query := bson.M{
+		"nombre": bson.M{"$regex": `(?i)` + search},
+	}
 	
 	cursor,err:=col.Find(ctx,query,findOptions)
 	if err != nil {
@@ -60,7 +62,6 @@ func GetFollowerList(ID string,page int64,search string,tipo string)([]*models.U
 			u.WebSite=""
 			u.Banner=""
 			u.Location=""
-
 			results=append(results,&u)
 		}
 	}
