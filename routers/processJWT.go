@@ -4,7 +4,7 @@ import (
 	"errors"
 	"strings"
 
-	jwt "github.com/dgrijalva/jwt-go"
+	jwt "github.com/golang-jwt/jwt/v4"
 	"github.com/rodzy/flash/db"
 	"github.com/rodzy/flash/models"
 )

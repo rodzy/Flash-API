@@ -1,13 +1,23 @@
 module github.com/rodzy/flash
 
-go 1.13
+go 1.25.0
 
 require (
-	9fans.net/go v0.0.2 // indirect
-	github.com/766b/go-outliner v0.0.0-20180511142203-fc6edecdadd7 // indirect
-	github.com/dgrijalva/jwt-go v3.2.0+incompatible
+	github.com/golang-jwt/jwt/v4 v4.5.2
 	github.com/gorilla/mux v1.7.4
 	github.com/rs/cors v1.7.0
-	go.mongodb.org/mongo-driver v1.3.2
-	golang.org/x/crypto v0.0.0-20200423211502-4bdfaf469ed5
+	go.mongodb.org/mongo-driver v1.17.7
+	golang.org/x/crypto v0.52.0
+)
+
+require (
+	github.com/golang/snappy v0.0.4 // indirect
+	github.com/klauspost/compress v1.16.7 // indirect
+	github.com/montanaflynn/stats v0.7.1 // indirect
+	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
+	github.com/xdg-go/scram v1.1.2 // indirect
+	github.com/xdg-go/stringprep v1.0.4 // indirect
+	github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 // indirect
+	golang.org/x/sync v0.20.0 // indirect
+	golang.org/x/text v0.37.0 // indirect
 )
